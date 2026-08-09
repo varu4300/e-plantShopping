@@ -260,7 +260,10 @@ function ProductList({ onHomeClick }) {
     const handleAddToCart = (plant) => {
         dispatch(addItem(plant));
 
-        setAddedToCart((prevState) => ({...prevState, [plant.name]: true}))
+        setAddedToCart((prevState) => ({
+            ...prevState, 
+            [plant.name]: true
+        }));
     }
     return (
         <div>
@@ -290,7 +293,7 @@ function ProductList({ onHomeClick }) {
                                 <h1><div>{item.category}</div></h1>
                                 {
                                     item.plants.map((plant, key) => (
-                                        <div className="product-card" key={key}>
+                                        <div className="product-card" key={index + key}>
                                             <img src={plant.image} alt={plant.name} className="product-image"/>
                                             <div className="product-title">{plant.name}</div>
                                             <div className="product-description">{plant.description}</div>
